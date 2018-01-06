@@ -15,6 +15,7 @@ const Parser = (_links = []) => {
 		// Parse the document body
 		console.log(`Page title:  ${$("title").text()}`);
 	};
+    
 	this.parsePage = (page) => {
 		if (!page || _.isEmpty(page.link)) {
 			console.log(ERROR.INVALID_PAGE);
@@ -27,10 +28,13 @@ const Parser = (_links = []) => {
 			}
 		};
 		console.log(`Visiting ${page.name}`);
-		requestP(options).then(this.processRequest).catch((err) => {
-			console.log(ERROR.ERROR, err);
-		});
+		requestP(options)
+			.then(this.processRequest)
+			.catch((err) => {
+				console.log(ERROR.ERROR, err);
+			});
 	};
+    
 	this.runLinks = () => {
 		if (!this.links) {
 			console.log("No Links to process!");
@@ -38,6 +42,7 @@ const Parser = (_links = []) => {
 		}
 		_.each(this.links, this.parsePage);
 	};
+    
 	return this;
 };
 
