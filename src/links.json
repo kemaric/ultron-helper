@@ -2,5 +2,9 @@
     {
       "name": "Reddit",
       "link": "https://www.reddit.com/r/OnePieceTC/"
+    },
+    {
+        "name": "Google",
+        "link": null
     }
   ]

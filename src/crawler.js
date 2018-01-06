@@ -1,50 +1,7 @@
-const requestP = require("request-promise");
 const fs = require("fs");
-const cheerio = require("cheerio");
 const URL = require("url-parse");
 const _ = require("lodash");
-
-const ERROR = {
-	INVALID_PAGE: "Invalid Page Specified",
-	ERROR: "Error"
-};
-
-const Parser = (_links = []) => {
-	this.link = _links;
-	this.processRequest = ($) => {
-		// Parse the document body
-		console.log(`Page title:  ${$("title").text()}`);
-	};
-    
-	this.parsePage = (page) => {
-		if (!page || _.isEmpty(page.link)) {
-			console.log(ERROR.INVALID_PAGE);
-			return;
-		}
-		let options = {
-			uri : page.link,
-			transform: function (body) {
-				return cheerio.load(body);
-			}
-		};
-		console.log(`Visiting ${page.name}`);
-		requestP(options)
-			.then(this.processRequest)
-			.catch((err) => {
-				console.log(ERROR.ERROR, err);
-			});
-	};
-    
-	this.runLinks = () => {
-		if (!this.links) {
-			console.log("No Links to process!");
-			return;
-		}
-		_.each(this.links, this.parsePage);
-	};
-    
-	return this;
-};
+const Parser = require("./parser");
 
 const main = () => {
 	const ultronParser = Parser();
