@@ -1,0 +1,33 @@
+{
+  "name": "ultron-helper",
+  "version": "0.0.0",
+  "description": "A webcrawler for extracting data in JS.",
+  "main": "src/crawler.js",
+  "author": "Kemari",
+  "license": "ISC",
+  "scripts": {
+    "start": "node ./src/crawler.js",
+    "init-lint": "./node_modules/.bin/eslint --init "
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.4",
+    "request": "^2.65.0",
+    "request-promise": "^4.2.2",
+    "url-parse": "^1.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
